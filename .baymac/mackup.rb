@@ -1,6 +1,8 @@
 class Mackup
   attr_accessor :installed
 
+# TODO: Exclude .mackup.cfg from syncing, empty symlink getting left and breaking things
+
 DEFAULT_CONFIG = """[storage]
 engine = file_system
 path = #{Dir.pwd}/.baymac/mackup/"""
@@ -39,7 +41,7 @@ path = #{Dir.pwd}/.baymac/mackup/"""
     end
 
     # Temporarily use our configuration
-    File.write(ENV['HOME'] + "/.mackup.cfg", DEFAULT_CONFIG)
+    File.open(ENV['HOME'] + "/.mackup.cfg", "w") { |file| file.write(DEFAULT_CONFIG)}
     $IOX.run("mackup -f backup")
 
     # Restore existing configuration leave ours if there was none
@@ -63,7 +65,8 @@ path = #{Dir.pwd}/.baymac/mackup/"""
     end
 
     # Temporarily use our configuration
-    File.write(ENV['HOME'] + "/.mackup.cfg", DEFAULT_CONFIG)
+    File.open(ENV['HOME'] + "/.mackup.cfg", "w") { |file| file.write(DEFAULT_CONFIG)}
+    # TODO: Error checking needed here...
     $IOX.run("mackup restore")
 
     # Restore existing configuration leave ours if there was none

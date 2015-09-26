@@ -26,7 +26,8 @@ Main {
     verbose = params['verbose'].given? && params['verbose'].value
     fast = params['fast'].given? && params['fast'].value
 
-    $IOX = IOX.instance()
+    $IOX = IOX.instance
+    $IOX.setVerbose(verbose)
 
     @baymac = Baymac.new(verbose, fast)
 

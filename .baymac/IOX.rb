@@ -16,6 +16,10 @@ class IOX
   BAYMAC = "[<%= color('·_·', BOLD) %>] "
   SAD_BAYMAC = "[._.] "
 
+  def setVerbose(verbose)
+    @verbose = verbose
+  end
+
   def commandSuccess?(cmd)
     stdouterr, status = Open3.capture2e("#{cmd}")
     status.success?

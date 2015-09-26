@@ -29,6 +29,7 @@ class Cask
   end
 
   def installApps
+    # TODO: Error checking
     @apps.each do |app|
       $IOX.say "Installing #{app}... "
       $IOX.run("brew cask install #{app}")
