@@ -38,14 +38,14 @@ Do not pause after Baymac speaks
 ### 0.1
 
 * [x] Software scanning and selection
-* [ ] Software installation
-* [ ] Save configurations locally using Mackup
-* [ ] Copy configurations to home directory using Mackup
+* [x] Software installation
+* [x] Save configurations locally using Mackup
+* [x] Symlink configurations to home directory using Mackup
 * [ ] Execute scripts in `/scripts` directory
 
 ### 0.2
 * [ ] Copying non-configuration files
-* [ ] Intelligent merging of user choices of multiple scans
+* [x] Intelligent merging of user choices of multiple scans
 * [ ] User selection of which applications to transfer configurations for
 
 ### 0.3

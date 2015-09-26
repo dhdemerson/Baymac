@@ -2,6 +2,7 @@
 
 require 'main'
 require_relative '.baymac/Baymac'
+require_relative '.baymac/IOX'
 
 Main {
 
@@ -24,6 +25,8 @@ Main {
   def run
     verbose = params['verbose'].given? && params['verbose'].value
     fast = params['fast'].given? && params['fast'].value
+
+    $IOX = IOX.instance()
 
     @baymac = Baymac.new(verbose, fast)
 
